@@ -233,7 +233,11 @@ def load_custom_zeroshot_model(config):
             state_dict[k] = torch.from_numpy(v)
     else:
         raise ValueError(f'=> Unknown model file, with ext {ext}')
-    msg = model.load_state_dict(state_dict, strict=False)
+    new_state_dict = {}
+    for k, v in state_dict.items():
+        new_k = k.replace('lang_encoder', 'text').replace('lang_projection', 'text_projection').replace('image_encoder', 'visual').replace('image_projection', 'vision_projection')
+        new_state_dict[new_k] = v
+    msg = model.load_state_dict(new_state_dict, strict=False)
     print(f'loading checkpoint msg: {msg}')
     return model
 
