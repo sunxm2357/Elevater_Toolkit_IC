@@ -12,9 +12,9 @@
 
 OUTPUT_DIR=/checkpoints/sunxm/output/evaluations
 MODEL_CFG=clip_swin_tiny_my
-mode=linear_probe
+MODE=linear_probe
 CKPT=/checkpoints/sunxm/output/UniCLTask/image_text_pairs_v2/unicl_imagenet21k_image_only_no_decay-lr0.0008-wd0.05-bs4096-clip0.0-g16/swin_tiny_in21k_img_only_no_decay.yaml_conf~/run_3/best_model/model/default/model_state_dict.pt
 
 cd /fsx/sunxm/code/Elevater_Toolkit_IC
 
-OUTPUT_DIR=$OUTPUT_DIR MODEL_CFG=$MODEL_CFG mode=$mode CKPT=$CKPT DATASET=cifar100  bash run_multi.sh
+MODE=$MODE OUTPUT_DIR=$OUTPUT_DIR MODEL_CFG=$MODEL_CFG mode=$mode CKPT=$CKPT DATASET=cifar100  bash run_multi.sh

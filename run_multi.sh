@@ -4,7 +4,7 @@
 model_cfg=$MODEL_CFG
 
 # Mode: [linear_probe, finetune, zeroshot]
-mode=zeroshot
+mode=$MODE
 
 # Use FP32 [default: True]
 use_fp32=True
