@@ -1,7 +1,7 @@
 ############## Configuration section begins ##################
 
 # Model Config: [vitb32_CLIP, vitb16_CLIP, mae_vitb16, mocov3_vitb16, vit_base_patch16_224, vit_base_patch32_224, deit_base_patch16_224]
-model_cfg=vitb32_CLIP
+model_cfg=$MODEL_CFG
 
 # Mode: [linear_probe, finetune, zeroshot]
 mode=zeroshot
@@ -13,7 +13,7 @@ use_fp32=True
 dataset=$DATASET
 
 # Model checkpoint
-model_ckpt=.
+model_ckpt=$CKPT
 
 # output directory
 output_dir=$OUTPUT_DIR
