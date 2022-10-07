@@ -35,7 +35,7 @@ l2_weight_decay=1e-6
 random_seed=0
 
 # Shots: {5, 20, 50} for few shot, and -1 for full-shot
-num_shots=5
+num_shots=-1
 
 # Whether to init the linear head with the text encoder
 init_head_with_text_encoder=True
