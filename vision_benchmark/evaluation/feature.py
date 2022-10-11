@@ -288,7 +288,6 @@ def get_model(config, feature_type='image'):
         model.forward = model.forward_features
     elif model_name.startswith('clip_'):
         model = load_custom_zeroshot_model(config)
-
         if config.LOSS.LOSS == 'softmax':
             if feature_type == 'image':
                 model.forward = model.encode_image
@@ -298,7 +297,6 @@ def get_model(config, feature_type='image'):
                 raise Exception('Incorrect model type')
         elif config.LOSS.LOSS == 'contrast':
             logging.info(f'Training objective: { config.LOSS.LOSS }.')
-
     else:
         if config.MODEL.CLIP_FP32:
             import clip_vlp as clip
