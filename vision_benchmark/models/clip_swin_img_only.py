@@ -16,7 +16,7 @@ from timm.models.layers import DropPath, trunc_normal_
 from vision_benchmark.utils.comm import comm
 from .cls_swin import SwinTransformer
 from vision_benchmark.datasets.languages.build import build_tokenizer
-
+import clip
 
 logger = logging.getLogger(__name__)
 
