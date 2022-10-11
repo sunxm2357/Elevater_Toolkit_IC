@@ -230,7 +230,9 @@ class CLIP_img_student(nn.Module):
 
     @property
     def dtype(self):
-        return self.visual.conv1.weight.dtype
+        for name, _ in self.named_parameters():
+            param = getattr(self, name)
+            return param.dtype
 
     def encode_image(self, image, norm=True):
         x = self.visual.forward_features(image)
