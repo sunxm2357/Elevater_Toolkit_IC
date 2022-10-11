@@ -242,6 +242,8 @@ class CLIP_img_student(nn.Module):
         return x
 
     def encode_text(self, text, norm=True):
+        import pdb
+        pdb.set_trace()
         x = self.token_embedding(text).type(self.dtype)  # [batch_size, n_ctx, d_model]
 
         x = x + self.positional_embedding.type(self.dtype)
