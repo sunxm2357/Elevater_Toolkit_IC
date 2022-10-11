@@ -155,6 +155,7 @@ class CLIP_img_student(nn.Module):
         super().__init__()
 
         teacher_model, _ = clip.load('ViT-L/14', jit=False)
+        teacher_model = teacher_model.float()
         self.transformer = teacher_model.transformer
         self.token_embedding = teacher_model.token_embedding
         self.positional_embedding = teacher_model.positional_embedding
