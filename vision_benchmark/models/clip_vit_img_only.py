@@ -30,8 +30,6 @@ import torch
 from timm.models.layers import DropPath, trunc_normal_
 from torch import nn
 
-from ...Utils import is_main_process
-
 logger = logging.getLogger(__name__)
 
 
