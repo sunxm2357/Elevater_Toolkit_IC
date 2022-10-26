@@ -102,6 +102,19 @@ def main():
         msg = f'=> TEST: {metric} {100 * result:.3f}% '
         logging.info(msg)
 
+        # Saving results to the experiment folder
+        dataset_name = os.path.basename(args.ds)
+        exp_folder = os.path.dirname(config.MODEL.PRETRAINED)
+        result_file = os.path.join(exp_folder, 'result.txt')
+        msg = f'=> TEST: {metric} {100 * result:.3f}% '
+        line = '%s: %s \n' % (dataset_name, msg)
+        if os.path.exists(result_file):
+            f = open(result_file, 'a')
+        else:
+            f = open(result_file, 'w+')
+        f.writelines(line)
+        f.close()
+
     if args.save_predictions:
         import json
 

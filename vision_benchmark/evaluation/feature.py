@@ -238,7 +238,7 @@ def load_custom_zeroshot_model(config):
         new_k = k.replace('lang_encoder', 'text').replace('lang_projection', 'text_projection').replace('image_encoder', 'visual').replace('image_projection', 'vision_projection')
         new_state_dict[new_k] = v
     msg = model.load_state_dict(new_state_dict, strict=False)
-    print(f'loading checkpoint msg: {msg}')
+    # print(f'loading checkpoint msg: {msg}')
     return model
 
 
