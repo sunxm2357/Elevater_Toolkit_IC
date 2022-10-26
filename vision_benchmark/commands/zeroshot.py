@@ -104,7 +104,7 @@ def main():
 
         # Saving results to the experiment folder
         dataset_name = os.path.basename(args.ds)
-        exp_folder = os.path.dirname(config.MODEL.PRETRAINED)
+        exp_folder = os.path.dirname(config.TEST.MODEL_FILE)
         result_file = os.path.join(exp_folder, 'result.txt')
         msg = f'=> TEST: {metric} {100 * result:.3f}% '
         line = '%s: %s \n' % (dataset_name, msg)
