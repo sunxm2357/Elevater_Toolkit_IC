@@ -3,7 +3,7 @@
 #SBATCH --job-name=cc3m_food101_fullset_lp
 #SBATCH --partition=learnai4rl
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=12
 #SBATCH  --account all
 
 #SBATCH --error=log_food101_fullset_lp.e.log
