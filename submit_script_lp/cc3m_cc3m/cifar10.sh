@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --job-name=cc3m_cifar10_fullset_lp
-#SBATCH --partition=hipri
+#SBATCH --partition=learnai4rl
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=12
 #SBATCH  --account all
