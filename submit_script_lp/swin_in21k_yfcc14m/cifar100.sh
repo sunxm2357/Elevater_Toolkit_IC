@@ -11,7 +11,7 @@
 #SBATCH --output=log_cifar100_fullset_lp.o.log
 
 OUTPUT_DIR=/checkpoints/sunxm/output/evaluations
-MODEL_CFG=clip_swin
+MODEL_CFG=clip_swin_tiny
 MODE=linear_probe
 CKPT=/fsx/sunxm/models/in21k_yfcc14m.pth
 
