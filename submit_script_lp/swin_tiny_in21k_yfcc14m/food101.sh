@@ -10,9 +10,9 @@
 #SBATCH --output=log_food101_fullset_lp.o.log
 
 OUTPUT_DIR=/checkpoints/sunxm/output/evaluations
-MODEL_CFG=clip_swin_tiny_distill
+MODEL_CFG=clip_swin
 MODE=linear_probe
-CKPT=/checkpoints/sunxm/output/EfficientVLPTask/image_text_unpaired_v2/swin_tiny_in21k_yfcc14m_origin_offline_feat_no_decay-lr0.0008-wd0.05-bs4096-clip0.0-g16/unicl_swin_tiny-in21k-yfcc14m-distill-256-offline-feat-no-decay.yaml_conf~/run_1/best_model/model/default/model_state_dict.pt
+CKPT=/fsx/sunxm/models/in21k_yfcc14m.pth
 
 cd /fsx/sunxm/code/Elevater_Toolkit_IC
 
