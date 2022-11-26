@@ -224,6 +224,10 @@ def load_custom_zeroshot_model(config):
     ext = model_file.split('.')[-1]
     if ext == 'pth' or ext == 'pt':
         state_dict = torch.load(model_file, map_location="cpu")
+        try:
+            state_dict = state_dict['model']
+        except:
+            pass
     elif ext == 'pkl':
         logging.info('=> load pkl model')
         with open(model_file, 'rb') as f:
