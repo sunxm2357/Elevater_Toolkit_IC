@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --job-name=vit_taskaware_pseudo_0.3_in1k_cifar10_food101_fullset_lp
-#SBATCH --partition=hipri
+#SBATCH --partition=learnai4rl
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH  --account all
