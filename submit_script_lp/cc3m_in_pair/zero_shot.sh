@@ -6,8 +6,8 @@
 #SBATCH --cpus-per-task=12
 #SBATCH  --account all
 
-#SBATCH --error=log_cifar100_fullset_lp.e.log
-#SBATCH --output=log_cifar100_fullset_lp.o.log
+#SBATCH --error=log_zero_shot.e.log
+#SBATCH --output=log_zero_shot.o.log
 
 
 MODEL_CFG=clip_vit_distill
