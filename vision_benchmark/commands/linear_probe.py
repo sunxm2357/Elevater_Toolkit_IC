@@ -108,6 +108,18 @@ def main():
     best_acc, model_info = full_model_finetune(train_dataloader, val_dataloader, test_dataloader, args.no_tuning, args.lr, args.l2, config)
     test_predictions = model_info['best_logits']
 
+    dataset_name = os.path.basename(args.ds)
+    msg = f'=> Linear Probing, NUM_SAMPLES_PER_CLASS :{config.DATASET.NUM_SAMPLES_PER_CLASS},  Best score: Acc@1 {best_acc:.3f}'
+    line = '%s: %s \n' % (dataset_name, msg)
+    exp_folder = os.path.dirname(config.TEST.MODEL_FILE)
+    result_file = os.path.join(exp_folder, 'result.txt')
+    if os.path.exists(result_file):
+        f = open(result_file, 'a')
+    else:
+        f = open(result_file, 'w+')
+    f.writelines(line)
+    f.close()
+
     if args.save_predictions:
         import json
 
