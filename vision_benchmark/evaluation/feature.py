@@ -311,6 +311,7 @@ def get_model(config, feature_type='image'):
         else:
             import clip
         if model_name in clip.available_models():
+            logging.info('Using OpenAI weights')
             model, _ = clip.load(model_name, jit=False)
             if feature_type == 'image':
                 model.forward = model.encode_image
@@ -606,6 +607,12 @@ def construct_dataloader(config, feature_type="image", test_split_only=False):
             val_split=0.2
             train_dataloader, val_dataloader = get_dataloader(TorchDataset( ManifestDataset(train_set_dataset_info, train_set), transform=transform_clip), val_split=val_split)
             logging.info(f'Val split from Train set: Train size is {len(train_set.images)*(1-val_split)}, and validation size is {len(train_set.images)*val_split}.')
+
+    elif config.DATASET.DATASET == 'imagenetv2':
+        from imagenetv2_pytorch import ImageNetV2Dataset
+        test_set = ImageNetV2Dataset("matched-frequency", transform=transform_clip, location=config.DATASET.ROOT)
+        test_dataloader = get_dataloader(test_set)
+        train_dataloader, val_dataloader = None, None
     else:
         if not test_split_only:
             if config.DATASET.VAL_SET:

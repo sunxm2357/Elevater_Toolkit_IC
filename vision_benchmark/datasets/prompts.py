@@ -3244,6 +3244,7 @@ class_map = {
     'dtd': describabletextures_classes,
     'fer-2013': facialemotionrecognition2013_classes,
     'imagenet-1k': imagenet_classes,
+    'imagenetv2': imagenet_classes,
 }
 
 template_map = {
@@ -3272,4 +3273,5 @@ template_map = {
     'dtd': describabletextures_templates,
     'fer-2013': facialemotionrecognition2013_templates,
     'imagenet-1k': imagenet_templates,
+    'imagenetv2': imagenet_templates,
 }
