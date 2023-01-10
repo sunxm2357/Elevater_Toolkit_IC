@@ -345,8 +345,6 @@ def extract_feature(model, data_loader, config):
     all_features = []
     all_labels = []
     with torch.no_grad():
-        import pdb
-        pdb.set_trace()
         for batch in tqdm(data_loader, f'Extracting features with model {config.MODEL.NAME}.'):
             x, y = batch[:2]
 
