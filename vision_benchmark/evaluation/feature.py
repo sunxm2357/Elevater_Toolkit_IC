@@ -99,6 +99,9 @@ def create_dataloader(dataset, batch_size, shuffle=True, num_workers=6, pin_memo
 
 
 def get_dataloader(dataset, val_split=0.0, batch_size_per_gpu=64, workers=6, pin_memory=True):
+    import platform
+    if platform.platform().startswith('macOS'):
+        workers = 0
     if val_split == 0:
         return create_dataloader(
             dataset,
@@ -342,6 +345,8 @@ def extract_feature(model, data_loader, config):
     all_features = []
     all_labels = []
     with torch.no_grad():
+        import pdb
+        pdb.set_trace()
         for batch in tqdm(data_loader, f'Extracting features with model {config.MODEL.NAME}.'):
             x, y = batch[:2]
 
