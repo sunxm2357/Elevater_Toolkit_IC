@@ -348,8 +348,6 @@ def extract_feature(model, data_loader, config):
     with torch.no_grad():
         for batch in tqdm(data_loader, f'Extracting features with model {config.MODEL.NAME}.'):
             x, y = batch[:2]
-            import pdb
-            pdb.set_trace()
             # compute output
             if device == torch.device('cuda'):
                 x = x.cuda(non_blocking=True)
