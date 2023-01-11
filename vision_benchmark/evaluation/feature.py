@@ -615,8 +615,6 @@ def construct_dataloader(config, feature_type="image", test_split_only=False):
         test_dataloader = get_dataloader(test_set)
         train_dataloader, val_dataloader = None, None
     elif config.DATASET.DATASET == 'imagenet-r':
-        import pdb
-        pdb.set_trace()
         test_set = torchvision.datasets.ImageFolder(os.path.join(config.DATASET.ROOT, config.DATASET.TEST_SET), transform=transform_clip)
         test_dataloader = get_dataloader(test_set)
         train_dataloader, val_dataloader = None, None
