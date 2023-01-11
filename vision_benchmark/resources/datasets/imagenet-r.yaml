@@ -1,0 +1,5 @@
+DATASET:
+  DATASET: 'imagenet-r'
+  ROOT: '../DATASET/imagenet-r/'
+TEST:
+  METRIC: 'accuracy'
