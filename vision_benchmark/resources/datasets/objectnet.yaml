@@ -1,0 +1,6 @@
+DATASET:
+  DATASET: 'imagenet-r'
+  ROOT: '../DATASET/'
+  TEST_SET: 'classification/objectnet/objectnet-1.0/images'
+TEST:
+  METRIC: 'accuracy'
