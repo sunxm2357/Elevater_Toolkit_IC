@@ -1,5 +1,5 @@
 DATASET:
-  DATASET: 'imagenet-r'
+  DATASET: 'objectnet'
   ROOT: '../DATASET/'
   TEST_SET: 'classification/objectnet-1.0/images'
 TEST:
