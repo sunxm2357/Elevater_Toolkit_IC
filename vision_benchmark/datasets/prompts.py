@@ -3152,7 +3152,18 @@ imagenet_r_classes = ['goldfish', 'great white shark', 'hammerhead', 'stingray',
                       'ice cream', 'bagel', 'pretzel', 'cheeseburger', 'hotdog', 'cabbage', 'broccoli', 'cucumber','bell pepper', 'mushroom', 'Granny Smith', 'strawberry', 'lemon', 'pineapple',
                       'banana', 'pomegranate', 'pizza','burrito','espresso', 'volcano', 'baseball player', 'scuba diver', 'acorn']
 
-objectnet_classes = ['alarm clock', 'backpack', 'banana', 'band aid', 'basket', 'full sized towel', 'beer bottle', 'bench', 'bicycle', 'binder closed', 'bottle cap', 'bread loaf', 'broom', 'bucket', 'butchers knife', 'can opener', 'candle', 'cellphone', 'chair', 'clothes hamper', 'coffee french press', 'combination lock', 'computer mouse', 'desk lamp', 'drill', 'hand towel or rag', 'doormat', 'dress shoe men', 'drinking cup', 'drying rack for dishes', 'envelope', 'fan', 'frying pan', 'dress', 'hair dryer', 'hammer', 'helmet', 'iron for clothes', 'jeans', 'keyboard', 'ladle', 'lampshade', 'laptop open', 'lemon', 'letter opener', 'lighter', 'lipstick', 'match', 'measuring cup', 'microwave', 'mixing salad bowl', 'monitor', 'mug', 'nail fastener', 'necklace', 'orange', 'padlock', 'paintbrush', 'paper towel', 'pen', 'pill bottle', 'pillow', 'pitcher', 'plastic bag', 'plate', 'plunger', 'pop can', 'portable heater', 'printer', 'remote control', 'ruler', 'running shoe', 'safety pin', 'salt shaker', 'sandal', 'screw', 'shovel', 'skirt', 'sleeping bag', 'soap dispenser', 'sock', 'soup bowl', 'spatula', 'speaker', 'still camera', 'strainer', 'stuffed animal', 'suit jacket', 'sunglasses', 'sweater', 'swimming trunks', 't-shirt', 'tv', 'teapot', 'tennis racket', 'tie', 'toaster', 'toilet paper roll', 'trash bin', 'tray', 'umbrella', 'vacuum cleaner', 'vase', 'wallet', 'watch', 'water bottle', 'weight exercise', 'weight scale', 'wheel', 'whistle', 'wine bottle', 'winter glove', 'wok']
+objectnet_classes = ['alarm clock', 'backpack', 'banana', 'band aid', 'basket', 'beer bottle', 'bench', 'bicycle', 'binder closed', 'bottle cap',
+                     'bread loaf', 'broom', 'bucket', 'butchers knife', 'can opener', 'candle', 'cellphone', 'chair', 'clothes hamper', 'coffee french press',
+                     'combination lock', 'computer mouse', 'desk lamp', 'doormat', 'dress', 'dress shoe men', 'drill', 'drinking cup', 'drying rack for dishes', 'envelope',
+                     'fan', 'frying pan', 'full sized towel', 'hair dryer', 'hammer', 'hand towel or rag', 'helmet', 'iron for clothes', 'jeans', 'keyboard',
+                     'ladle', 'lampshade', 'laptop open', 'lemon', 'letter opener', 'lighter', 'lipstick', 'match', 'measuring cup', 'microwave',
+                     'mixing salad bowl', 'monitor', 'mug', 'nail fastener', 'necklace', 'orange', 'padlock', 'paintbrush', 'paper towel', 'pen',
+                     'pill bottle', 'pillow', 'pitcher', 'plastic bag', 'plate', 'plunger', 'pop can', 'portable heater', 'printer', 'remote control',
+                     'ruler', 'running shoe', 'safety pin', 'salt shaker', 'sandal', 'screw', 'shovel', 'skirt', 'sleeping bag', 'soap dispenser',
+                     'sock', 'soup bowl', 'spatula', 'speaker', 'still camera', 'strainer', 'stuffed animal', 'suit jacket', 'sunglasses', 'sweater',
+                     'swimming trunks', 't-shirt', 'teapot', 'tennis racket', 'tie', 'toaster', 'toilet paper roll', 'trash bin', 'tray', 'tv',
+                     'umbrella', 'vacuum cleaner', 'vase', 'wallet', 'watch', 'water bottle', 'weight exercise', 'weight scale', 'wheel', 'whistle',
+                     'wine bottle', 'winter glove', 'wok']
 
 imagenet_templates = [
     'a bad photo of a {}.',
