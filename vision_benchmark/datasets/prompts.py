@@ -3275,6 +3275,7 @@ class_map = {
     'fer-2013': facialemotionrecognition2013_classes,
     'imagenet-1k': imagenet_classes,
     'imagenetv2': imagenet_classes,
+    'imagenet-sketch': imagenet_classes,
     'imagenet-r': imagenet_r_classes,
     'objectnet': objectnet_classes,
 }
@@ -3306,6 +3307,7 @@ template_map = {
     'fer-2013': facialemotionrecognition2013_templates,
     'imagenet-1k': imagenet_templates,
     'imagenetv2': imagenet_templates,
+    'imagenet-sketch': imagenet_templates,
     'imagenet-r': imagenet_templates,
     'objectnet': imagenet_templates,
 }
