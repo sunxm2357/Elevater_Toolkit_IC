@@ -614,7 +614,7 @@ def construct_dataloader(config, feature_type="image", test_split_only=False):
         test_set = ImageNetV2Dataset("matched-frequency", transform=transform_clip, location=config.DATASET.ROOT)
         test_dataloader = get_dataloader(test_set)
         train_dataloader, val_dataloader = None, None
-    elif config.DATASET.DATASET in ['imagenet-r', 'objectnet', 'imagenet-sketch']:
+    elif config.DATASET.DATASET in ['imagenet-r', 'objectnet', 'imagenet-sketch', 'imagenet-a']:
         test_set = torchvision.datasets.ImageFolder(os.path.join(config.DATASET.ROOT, config.DATASET.TEST_SET), transform=transform_clip)
         test_dataloader = get_dataloader(test_set)
         train_dataloader, val_dataloader = None, None
