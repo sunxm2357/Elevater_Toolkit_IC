@@ -49,6 +49,4 @@ MODEL_CFG=clip_vit_distill_new_mean_std
 MODE=linear_probe
 CKPT=$1
 
-cd ../../
-
 OUTPUT_DIR=$OUTPUT_DIR MODEL_CFG=$MODEL_CFG MODE=$MODE CKPT=$CKPT DATASET=cifar10  bash run_multi.sh
