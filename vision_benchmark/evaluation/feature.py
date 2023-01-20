@@ -73,7 +73,7 @@ class FeatureData(Dataset):
         return self.X[idx, :], self.y[idx]
 
 
-def create_dataloader(dataset, batch_size, shuffle=True, num_workers=6, pin_memory=True):
+def create_dataloader(dataset, batch_size, shuffle=True, num_workers=3, pin_memory=True):
     def seed_worker(worker_id):
         # worker_seed = torch.initial_seed() % 2**32
         worker_seed = worker_id
@@ -98,7 +98,7 @@ def create_dataloader(dataset, batch_size, shuffle=True, num_workers=6, pin_memo
     return loader
 
 
-def get_dataloader(dataset, val_split=0.0, batch_size_per_gpu=64, workers=6, pin_memory=True):
+def get_dataloader(dataset, val_split=0.0, batch_size_per_gpu=64, workers=3, pin_memory=True):
     import platform
     if platform.platform().startswith('macOS'):
         workers = 0
