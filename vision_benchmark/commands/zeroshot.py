@@ -111,6 +111,7 @@ def main():
         result_file = os.path.join(exp_folder, 'result.txt')
         msg = f'=> TEST: {metric} {100 * result:.3f}% '
         line = '%s: %s \n' % (dataset_name, msg)
+        logging.info('print results to %s' % result_file)
         if os.path.exists(result_file):
             f = open(result_file, 'a')
         else:
