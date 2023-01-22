@@ -43,6 +43,8 @@ from collections import Counter
 import math
 import random
 import numpy as np
+from .split_network import ImageCLIP, TextCLIP, ImageCLIPwText, TextCLIPwImage, ImageUnicl, TextUnicl, ImageUniclwithTextClip, TextUniclwithImageClip, TextClipwithImageUnicl
+
 
 # The following line is to solve PIL "IOError: image file truncated" with big images.
 # Refer to https://stackoverflow.com/questions/12984426/python-pil-ioerror-image-file-truncated-with-big-images
@@ -305,6 +307,37 @@ def get_model(config, feature_type='image'):
                 raise Exception('Incorrect model type')
         elif config.LOSS.LOSS == 'contrast':
             logging.info(f'Training objective: { config.LOSS.LOSS }.')
+    elif model_name == 'image_student':
+        import clip
+        from clip.model import CLIP
+        teacher_model, _ = clip.load('ViT-L/14', jit=False)
+        teacher_model = teacher_model.float()
+        model = CLIP(embed_dim=config.MODEL.SPEC.EMBED_DIM,
+                     image_resolution=config.MODEL.SPEC.VISION.IMAGE_RESOLUTION,
+                     vision_layers=config.MODEL.SPEC.VISION.LAYERS,
+                     vision_width=config.MODEL.SPEC.VISION.WIDTH,
+                     vision_patch_size=config.MODEL.SPEC.VISION.PATCH_SIZE,
+                     context_length=config.MODEL.SPEC.TEXT.CONTEXT_LENGTH,
+                     vocab_size=config.MODEL.SPEC.TEXT.VOCAB_SIZE,
+                     transformer_width=config.MODEL.SPEC.TEXT.WIDTH,
+                     transformer_heads=config.MODEL.SPEC.TEXT.HEADS,
+                     transformer_layers=config.MODEL.SPEC.TEXT.LAYERS
+                     )
+        model = model.float()
+        img_model, text_model = ImageCLIP(model), TextCLIP(teacher_model)
+        checkpoint = torch.load(config.MODEL.PRETRAINED)
+        epoch = checkpoint['epoch']
+        logging.info(f'Using CLIP pretrained model {config.MODEL.PRETRAINED} @ epoch {epoch}')
+        saved_state_dict = {}
+        for k, v in checkpoint['image_state_dict'].items():
+            saved_state_dict[k.replace("module.", "")] = v
+        img_model.load_state_dict(saved_state_dict)
+        if feature_type == 'image':
+            model = ImageCLIPwText(img_model=img_model, text_model=text_model)
+        elif feature_type == 'text':
+            model = TextCLIPwImage(img_model=img_model, text_model=text_model)
+        else:
+            raise Exception('Incorrect model type.')
     else:
         if config.MODEL.CLIP_FP32:
             import clip_vlp as clip
