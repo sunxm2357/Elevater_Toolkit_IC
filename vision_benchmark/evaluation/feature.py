@@ -340,7 +340,9 @@ def get_model(config, feature_type='image'):
             raise Exception('Incorrect model type.')
     elif model_name == 'proj_distill':
         proj_model = bi_proj_model.build_bi_proj_model(config.MODEL, is_text=config.MODEL.DISTILL_TEXT)
-        checkpoint = torch.load(config.MODEL.PRETRAINED)
+        model_file = config.TEST.MODEL_FILE
+        logging.info(f'=> load model file: {model_file}')
+        checkpoint = torch.load(model_file)
         import pdb
         pdb.set_trace()
         saved_state_dict = {}
