@@ -346,7 +346,7 @@ def get_model(config, feature_type='image'):
         import pdb
         pdb.set_trace()
         saved_state_dict = {}
-        for k, v in checkpoint['image_state_dict'].items():
+        for k, v in checkpoint.items():
             saved_state_dict[k.replace("module.", "")] = v
         proj_model.load_state_dict(saved_state_dict)
         text_encoder = clip_model.load_clip(config.MODEL.STUDENT.TEXT.NAME, modality=['text'],
