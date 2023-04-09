@@ -12,6 +12,9 @@ MODEL:
   # Following configuration is needed for CLIP model.
   PRETRAINED: ''
   PRETRAINED_LAYERS: ['*']
+  SPEC:
+    TEXT:
+      TOKENIZER: clip
   IMAGE_ENCODER:
     SPEC:
       EMBED_DIM: 768
