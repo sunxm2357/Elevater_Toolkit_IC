@@ -338,6 +338,21 @@ def get_model(config, feature_type='image'):
             model = TextCLIPwImage(img_model=img_model, text_model=text_model)
         else:
             raise Exception('Incorrect model type.')
+    elif model_name == 'proj_student':
+        proj_model = bi_proj_model.build_bi_proj_model(config.MODEL, is_text=config.MODEL.DISTILL_TEXT)
+        checkpoint = torch.load(config.MODEL.PRETRAINED)
+        saved_state_dict = {}
+        for k, v in checkpoint['image_state_dict'].items():
+            saved_state_dict[k.replace("module.", "")] = v
+        proj_model.load_state_dict(saved_state_dict)
+        text_encoder = clip_model.load_clip(config.MODEL.STUDENT.TEXT.NAME, modality=['text'],
+                                 pre_proj=[config.MODEL.DISTILL_TEXT])
+        image_encoder = clip_model.load_clip(config.MODEL.STUDENT.IMAGE.NAME, modality=['image'],
+                                  pre_proj=[True])
+        proj_model = proj_model.float()
+        text_encoder = text_encoder.float()
+        image_encoder = image_encoder.float()
+        model = bi_proj_model.combine_clip(image_encoder, text_encoder, proj_model, pre_proj_text=config.MODEL.DISTILL_TEXT)
     else:
         if config.MODEL.CLIP_FP32:
             import clip_vlp as clip
