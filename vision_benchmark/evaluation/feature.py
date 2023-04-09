@@ -343,8 +343,8 @@ def get_model(config, feature_type='image'):
         model_file = config.TEST.MODEL_FILE
         logging.info(f'=> load model file: {model_file}')
         checkpoint = torch.load(model_file)
-        import pdb
-        pdb.set_trace()
+        # import pdb
+        # pdb.set_trace()
         saved_state_dict = {}
         for k, v in checkpoint.items():
             saved_state_dict[k.replace("module.", "")] = v
