@@ -341,6 +341,8 @@ def get_model(config, feature_type='image'):
     elif model_name == 'proj_distill':
         proj_model = bi_proj_model.build_bi_proj_model(config.MODEL, is_text=config.MODEL.DISTILL_TEXT)
         checkpoint = torch.load(config.MODEL.PRETRAINED)
+        import pdb
+        pdb.set_trace()
         saved_state_dict = {}
         for k, v in checkpoint['image_state_dict'].items():
             saved_state_dict[k.replace("module.", "")] = v
