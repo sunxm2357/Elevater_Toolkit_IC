@@ -386,10 +386,10 @@ def extract_feature(model, data_loader, config):
     model.eval()
 
     # Generate model statistics
-    visual_backbone = model.visual if model.visual is not None else model
+    # visual_backbone = model.visual if model.visual is not None else model
     model_info = config.MODEL.STATS
     config.defrost()
-    model_info['n_visual_params'] = sum(p.numel() for p in visual_backbone.parameters())
+    # model_info['n_visual_params'] = sum(p.numel() for p in visual_backbone.parameters())
     model_info['n_backbone_params'] = sum(p.numel() for p in model.parameters())
     model_info['n_params'] = sum(p.numel() for p in model.parameters())
     config.freeze()
@@ -400,11 +400,12 @@ def extract_feature(model, data_loader, config):
     with torch.no_grad():
         for batch in tqdm(data_loader, f'Extracting features with model {config.MODEL.NAME}.'):
             x, y = batch[:2]
+            y = y - 1
             # compute output
             if device == torch.device('cuda'):
                 x = x.cuda(non_blocking=True)
                 y = y.cuda(non_blocking=True)
-            outputs = model(x)
+            outputs = model.encode_image(x)
             all_features.append(outputs.cpu().numpy())
             all_labels.append(y.cpu().numpy())
 
