@@ -338,7 +338,7 @@ def get_model(config, feature_type='image'):
             model = TextCLIPwImage(img_model=img_model, text_model=text_model)
         else:
             raise Exception('Incorrect model type.')
-    elif model_name == 'proj_student':
+    elif model_name == 'proj_distill':
         proj_model = bi_proj_model.build_bi_proj_model(config.MODEL, is_text=config.MODEL.DISTILL_TEXT)
         checkpoint = torch.load(config.MODEL.PRETRAINED)
         saved_state_dict = {}
