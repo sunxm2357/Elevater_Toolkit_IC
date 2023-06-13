@@ -10,7 +10,7 @@ mode=zeroshot
 use_fp32=True
 
 # Dataset: [caltech101]
-dataset=caltech101
+dataset=imagenet-1k
 
 # Model checkpoint
 model_ckpt=.
