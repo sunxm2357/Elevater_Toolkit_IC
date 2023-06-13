@@ -16,7 +16,7 @@ dataset=imagenet-1k
 model_ckpt=.
 
 # output directory
-output_dir=./outputs
+output_dir=../outputs
 
 ############ Configurations for hyperparameter tuning begin ############
 # set to True to disable the automatic hyperparameter tuning
